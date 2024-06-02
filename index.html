@@ -70,13 +70,13 @@
   <!-- Home-->
   <section class="home-area element-cover-bg video-variant" id="home" >
      <!-- <div class="player" id="homeVideo" data-property="{videoURL:'https://www.youtube.com/watch?v=sQ22pm-xvrE',containment:'#home',autoPlay:true, mute:true, showControls:false, stopMovieOnBlur:false, showYTLogo: false}"></div> -->
-     <div class="player" id="homeVideo" data-property="{videoURL:'https://www.youtube.com/watch?v=-MKapbz0GIo',containment:'#home',autoPlay:true, mute:true, showControls:false, stopMovieOnBlur:false, showYTLogo: false}"></div>
+     <div class="player" id="homeVideo" data-property="{videoURL:'https://www.youtube.com/watch?v=d-zKJCKsoWw&ab_channel=G',containment:'#home',autoPlay:true, mute:true, showControls:false, stopMovieOnBlur:false, showYTLogo: false}"></div>
   
     <div class="container h-100">
       <div class="row h-100 align-items-center justify-content-center">
         <div class="col-12 col-lg-8 home-content text-center">
-          <h1 class="home-name">Berk <span>Karasu</span></h1>
-          <h4 class="cd-headline clip home-headline">I’m a <span class="cd-words-wrapper single-headline"><b class="is-visible">Developer</b><b>Freelancer</b></span></h4>
+          <h1 class="home-name" >Berk <span>Karasu</span></h1>
+          <h4 class="cd-headline clip home-headline" key="im"><span class="cd-words-wrapper single-headline"><b class="is-visible" key="developer">Software Developer</b><b key="developer">Software Developer</b></span></h4>
         </div>
       </div>
     </div>
@@ -143,8 +143,8 @@
                         </div>
                       </div>
                       <div class="row">
-                        <div class="col-12 col-md-6 single-info"><span key="aboutmeAge">Age</span><span>:</span>
-                          <p>28</p>
+                        <div class="col-12 col-md-6 single-info"><span  key="aboutmeAge">Age</span><span>:</span>
+                          <p id="aboutmeAge"></p>
                         </div>
                         <div class="col-12 col-md-6 single-info"><span key="aboutmeFrom">From</span><span>:</span>
                           <p>Istanbul, TR</p>
@@ -162,44 +162,7 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <!-- Services section-->
-            <!-- <div class="services-section single-section">
-              <div class="row">
-                <div class="col-12">
-                  <div class="section-heading page-heading mb-0">
-                    <h2 class="section-title">My Services</h2>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12 col-md-6 col-lg-4">
-                  <div class="single-service"><i class="icon service-icon ion ion-ios-flash"></i>
-                    <h6 class="service-title">Business Development Software</h6>
-                    <p class="service-description">I can develop software for your company's private business or for your own private business.</p>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                  <div class="single-service"><i class="icon service-icon ion-logo-wordpress"></i>
-                    <h6 class="service-title">Web Development</h6>
-                    <p class="service-description">I can make a website for your purposes</p>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                  <div class="single-service"><i class="icon service-icon ion-logo-ionic"></i>
-                    <h6 class="service-title">Customer Support</h6>
-                    <p class="service-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                  <div class="single-service"><i class="icon service-icon ion-md-move"></i>
-                    <h6 class="service-title">Fully Responsive</h6>
-                    <p class="service-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                  </div>
-                </div>
-              </div>
-            </div> -->
-         
+            </div>         
           </div>
         </div>
       </div>
@@ -232,7 +195,7 @@
                    
                     <div class="resume-item"><span class="item-arrow"></span>
                       <h5 class="item-title" key="resumeMasterDegree">Master Degree</h5>
-                      <span class="item-details" key="resumeMasterDegreeHeader">Yildiz Technical University / 2023 - 2024</span>
+                      <span class="item-details" key="resumeMasterDegreeHeader">Yildiz Technical University / Feb 2023 - June 2024</span>
                       <p class="item-description" key="resumeMasterDegreeParagraph">I am doing a master's degree without thesis in the department of information technology.</p>
                     </div>
                     <div class="resume-item"><span class="item-arrow"></span>
@@ -245,7 +208,7 @@
                     </div>
                     <div class="resume-item"><span class="item-arrow"></span>
                       <h5 class="item-title" key="resumeBachelorDegree">Bachelor Degree</h5>
-                      <span class="item-details" key="resumeBachelorDegreeHeader">Kocaeli University / 2013 - 2020</span>
+                      <span class="item-details" key="resumeBachelorDegreeHeader">Kocaeli University / Sep 2013 - Feb 2020</span>
                       <p class="item-description" key="resumeBachelorDegreeParagraph">I studied Mechanical Engineering.</p>
                     </div>
                   </div>
@@ -255,13 +218,18 @@
                   <div class="col-block experience">
                     <h3 class="col-title" key="resumeExperienceHeader">Experience</h3>
                     <div class="resume-item"><span class="item-arrow"></span>
+                      <h5 class="item-title"key="experienceSpidyaPosition">Software Developer</h5>
+                      <span class="item-details"key="experienceSpidyaHeader">Spidya Software Co. Inc. / Nov 2023 - Now </span>
+                      <p class="item-description"key="experienceSpidyaParagraph">In line with the needs that come systemically, I am making improvements on the SPIDYA Cheetah Platform.</p>
+                    </div>
+                    <div class="resume-item"><span class="item-arrow"></span>
                       <h5 class="item-title"key="experienceQsoftPosition">Software Developer</h5>
-                      <span class="item-details"key="experienceQsoftHeader">QSoft Information and Tech Co. Inc. / 2023 - </span>
+                      <span class="item-details"key="experienceQsoftHeader">QSoft Information and Tech Co. Inc. / Jan 2023 - Nov 2023</span>
                       <p class="item-description"key="experienceQsoftParagraph">Using .NET, I create custom whatsapp and teams chatbots according to customer requests.</p>
                     </div>
                     <div class="resume-item"><span class="item-arrow"></span>
                       <h5 class="item-title"key="experienceHisarPosition">Intern</h5>
-                      <span class="item-details"key="experienceHisarHeader">Hisar Celik Dokum Sanayi ve Ticaret A.S  /June 2019 - July 2019</span>
+                      <span class="item-details"key="experienceHisarHeader">Hisar Celik Dokum Sanayi ve Ticaret A.S  / June 2019 - July 2019</span>
                       <p class="item-description"key="experienceHisarParagraph">• It is an internship program where I observe the casting processes of large machine parts that come with a special order.</p>
                     </div>
                     <div class="resume-item"><span class="item-arrow"></span>
@@ -369,21 +337,6 @@
                 </div>
               </div>
             </div>
-            <!-- Video section-->
-            <!-- <div class="video-section single-section">
-              <div class="row align-items-center">
-                <div class="col-12 col-lg-6 content-part">
-                  <h3 class="video-title">Take a tour of my office</h3>
-                  <p class="video-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia cum quasi assumenda culpa praesentium consectetur voluptatibus expedita. Voluptatem tempore, aspernatur rem facilis, distinctio nemo! Odio velit, nemo dolorem voluptas!</p>
-                  <p class="video-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium qui aspernatur unde mollitia, in laborum.</p>
-                </div>
-                <div class="col-12 col-lg-6 video-part"><a class="media-lightbox" href="https://www.youtube.com/watch?v=doteMqP6eSc" data-lightbox>
-                    <div class="embed-responsive embed-responsive-16by9">
-                      <div class="embed-responsive-item element-cover-bg"><span class="play-wrapper"><i class="icon ion-md-play"></i></span></div>
-                    </div>
-                  </a></div>
-              </div>
-            </div> -->
           </div>
         </div>
       </div>
