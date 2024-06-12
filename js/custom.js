@@ -8,19 +8,67 @@
  */
 !(function (n) {
   "use strict";
-  n(function () {}), n(window).on("load", function () {});
+  n(function () { }), n(window).on("load", function () { });
 })(jQuery);
 
-function setAge(){
-  var agespan=document.getElementById("aboutmeAge");
- var age=getAge(new Date(1995, 1, 13)) ;
- agespan.innerHTML=age;
+function setAge() {
+  var agespan = document.getElementById("aboutmeAge");
+  var age = getAge(new Date(1995, 1, 13));
+  agespan.innerHTML = age;
 }
 setAge();
+const userAction = async () => {
+
+  const myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  //  var raw= jsonControl();
+  var name = document.querySelector('#contactname').value;
+  var mail = document.querySelector('#contactemail').value;
+  var subject = document.querySelector('#contactsubject').value;
+  var message = document.querySelector('#contactmessage').value;
+  if (!(name && mail && subject && message))
+    return null;
+  const raw = JSON.stringify({
+    "name": name,
+    "mail": mail,
+    "subject": subject,
+    "message": message
+  });
+  if (raw == null)
+    return;
+  const requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow"
+  };
+  fetch("http://128.140.107.62/formapp", requestOptions)
+    .then((response) => response.text())
+    .then((result) => {
+      var resultArea = document.querySelector('.contact-feedback');
+      resultArea.style.display = "block";
+      if (result) {
+        resultArea.classList.add("success");
+        resultArea.innerHTML="Mesajınız tarafıma ulaşmıştır, en yakın zamanda size dönüş yapacağım.";
+      }
+      else {
+        resultArea.classList.add("error");
+        resultArea.innerHTML="Mesaj gönderilirken bir hata oluştu, diğer iletişim seçenekleri üzerinden bana ulaşabilirsiniz.";
+      }
+    document.querySelector('#contact-form').reset();
+    })
+
+  
+
+}
+function jsonControl() {
+
+  return raw;
+}
 $(document).ready(function () {
   var arrLang = {
     TR: {
-      developer:"Yazılım Geliştirici",
+      developer: "Yazılım Geliştirici",
       about: "Hakkımda",
       resume: "Özgeçmiş",
       contact: "İletişim",
@@ -99,7 +147,7 @@ $(document).ready(function () {
     },
 
     ENG: {
-      developer:"Software Developer",
+      developer: "Software Developer",
       aboutme: "About Me",
       aboutmeparagraph1:
         "I am Berk Karasu, born in Sinop in 1995. I graduated from mechanical engineering and currently studying information technology.",
@@ -187,23 +235,23 @@ $(document).ready(function () {
   //     $(".language").html("Türkçe");
 
   // }
-  $('input, textarea').each(function() {
+  $('input, textarea').each(function () {
     var inputKey = $(this).attr('placeholder-key');
     $(this).attr('placeholder', arrLang[lang][inputKey]);
-});
+  });
 
   $("a,h5,h4,h6,p,h1,h2,span,li,button,h3,label,b").each(function (index, element) {
     $(this).text(arrLang[lang][$(this).attr("key")]);
   });
 });
-function getAge(d1, d2){
+function getAge(d1, d2) {
   d2 = d2 || new Date();
   var diff = d2.getTime() - d1.getTime();
   return Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
 }
-function request(){
+function request() {
   const request = new Request("https://example.com", {
-  method: "POST",
-  body: '{"foo": "bar"}',
-});
+    method: "POST",
+    body: '{"foo": "bar"}',
+  });
 }
