@@ -8,12 +8,67 @@
  */
 !(function (n) {
   "use strict";
-  n(function () {}), n(window).on("load", function () {});
+  n(function () { }), n(window).on("load", function () { });
 })(jQuery);
 
+function setAge() {
+  var agespan = document.getElementById("aboutmeAge");
+  var age = getAge(new Date(1995, 1, 13));
+  agespan.innerHTML = age;
+}
+setAge();
+const userAction = async () => {
+
+  const myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  //  var raw= jsonControl();
+  var name = document.querySelector('#contactname').value;
+  var mail = document.querySelector('#contactemail').value;
+  var subject = document.querySelector('#contactsubject').value;
+  var message = document.querySelector('#contactmessage').value;
+  if (!(name && mail && subject && message))
+    return null;
+  const raw = JSON.stringify({
+    "name": name,
+    "mail": mail,
+    "subject": subject,
+    "message": message
+  });
+  if (raw == null)
+    return;
+  const requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow"
+  };
+  fetch("http://128.140.107.62/formapp", requestOptions)
+    .then((response) => response.text())
+    .then((result) => {
+      var resultArea = document.querySelector('.contact-feedback');
+      resultArea.style.display = "block";
+      if (result) {
+        resultArea.classList.add("success");
+        resultArea.innerHTML="Mesajınız tarafıma ulaşmıştır, en yakın zamanda size dönüş yapacağım.";
+      }
+      else {
+        resultArea.classList.add("error");
+        resultArea.innerHTML="Mesaj gönderilirken bir hata oluştu, diğer iletişim seçenekleri üzerinden bana ulaşabilirsiniz.";
+      }
+    document.querySelector('#contact-form').reset();
+    })
+
+  
+
+}
+function jsonControl() {
+
+  return raw;
+}
 $(document).ready(function () {
   var arrLang = {
     TR: {
+      developer: "Yazılım Geliştirici",
       about: "Hakkımda",
       resume: "Özgeçmiş",
       contact: "İletişim",
@@ -35,7 +90,7 @@ $(document).ready(function () {
       resumeHeader: "Özgeçmiş",
       resumeEducationHeader: "Eğitim",
       resumeMasterDegree: "Yüksek Lisans",
-      resumeMasterDegreeHeader: "Yıldız Teknik Üniversitesi / 2023 - 2024",
+      resumeMasterDegreeHeader: "Yıldız Teknik Üniversitesi / Şubat 2023 - Haziran 2024",
       resumeMasterDegreeParagraph:
         "•Bilgi Teknolojileri bölümünde tezsiz yüksek lisans yapmaktayım.",
       resumeFenerbahceUniDegree: "Web ve Mobil Programlama",
@@ -44,11 +99,15 @@ $(document).ready(function () {
       resumeFenerbahceUniParagraph:
         "•İŞKUR tarafından düzenlenen 800 saatlik web programlama kursu",
       resumeBachelorDegree: "Lisans",
-      resumeBachelorDegreeHeader: "Kocaeli Üniversitesi / 2013 - 2020",
+      resumeBachelorDegreeHeader: "Kocaeli Üniversitesi / Eylül 2013 - Şubat 2020",
       resumeBachelorDegreeParagraph: "•Makine Mühendisliği bölümünden mezunum.",
       resumeExperienceHeader: "Deneyim",
+      experienceSpidyaPosition: "Yazılım Geliştirici",
+      experienceSpidyaHeader: "Spidya Yazılım A.Ş. / Kasım 2023 - Halen",
+      experienceSpidyaParagraph:
+        "•Sistemsel olarak gelen ihtiyaçlar doğrultusunda, SPIDYA Cheetah Platform üzerinde geliştirmeler yapıyorum.",
       experienceQsoftPosition: "Yazılım Geliştirici",
-      experienceQsoftHeader: "QSoft Bilgi ve Teknoloji A.Ş. / 2023 -",
+      experienceQsoftHeader: "QSoft Bilgi ve Teknoloji A.Ş. / Ocak 2023 -Kasım 2023",
       experienceQsoftParagraph:
         "•.NET kullanarak, müşteri talepleri doğrultusunda Whatsapp ve Teams platformlarında chatbotlar geliştiriyorum.",
       experienceHisarPosition: "Stajyer",
@@ -88,6 +147,7 @@ $(document).ready(function () {
     },
 
     ENG: {
+      developer: "Software Developer",
       aboutme: "About Me",
       aboutmeparagraph1:
         "I am Berk Karasu, born in Sinop in 1995. I graduated from mechanical engineering and currently studying information technology.",
@@ -105,7 +165,7 @@ $(document).ready(function () {
       resumeHeader: "Resume",
       resumeEducationHeader: "Education",
       resumeMasterDegree: "Master Degree",
-      resumeMasterDegreeHeader: "Yildiz Technical University / 2023 - 2024",
+      resumeMasterDegreeHeader: "Yildiz Technical University / Feb 2023 - June 2024",
       resumeMasterDegreeParagraph:
         "•I am doing a master's degree without thesis in the department of information technology.",
       resumeFenerbahceUniDegree: "Web and Mobile Programing",
@@ -113,11 +173,15 @@ $(document).ready(function () {
       resumeFenerbahceUniParagraph:
         "•800-hour web programming course organized by İŞKUR",
       resumeBachelorDegree: "Bachelor Degree",
-      resumeBachelorDegreeHeader: "Kocaeli University / 2013 - 2020",
+      resumeBachelorDegreeHeader: "Kocaeli University / Sep 2013 - Feb 2020",
       resumeBachelorDegreeParagraph: "•I studied Mechanical Engineering.",
       resumeExperienceHeader: "Experience",
+      experienceSpidyaPosition: "Software Developer",
+      experienceSpidyaHeader: "Spidya Software Co. Inc. / Nov 2023 - Now",
+      experienceSpidyaParagraph:
+        "•In line with the needs that come systemically, I am making improvements on the SPIDYA Cheetah Platform.",
       experienceQsoftPosition: "Software Developer",
-      experienceQsoftHeader: "QSoft Information and Tech Co. Inc. / 2023 -",
+      experienceQsoftHeader: "QSoft Information and Tech Co. Inc. / Jan 2023 - Nov 2023",
       experienceQsoftParagraph:
         "•Using .NET, I create custom whatsapp and teams chatbots according to customer requests.",
       experienceHisarPosition: "Intern",
@@ -171,12 +235,23 @@ $(document).ready(function () {
   //     $(".language").html("Türkçe");
 
   // }
-  $('input, textarea').each(function() {
+  $('input, textarea').each(function () {
     var inputKey = $(this).attr('placeholder-key');
     $(this).attr('placeholder', arrLang[lang][inputKey]);
-});
+  });
 
-  $("a,h5,h4,h6,p,h1,h2,span,li,button,h3,label").each(function (index, element) {
+  $("a,h5,h4,h6,p,h1,h2,span,li,button,h3,label,b").each(function (index, element) {
     $(this).text(arrLang[lang][$(this).attr("key")]);
   });
 });
+function getAge(d1, d2) {
+  d2 = d2 || new Date();
+  var diff = d2.getTime() - d1.getTime();
+  return Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+}
+function request() {
+  const request = new Request("https://example.com", {
+    method: "POST",
+    body: '{"foo": "bar"}',
+  });
+}
